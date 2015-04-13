@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block body %}
+
+    
+  <form action="{{ url_for('news_page') }}" method=post class=add-entry onsubmit="loading()">
+
+    <input name=text type=text placeholder="Enter search term here" size="22" autocomplete="off">
+      
+  </form>
+  
+  <h2 id="loading">Searching<span id="wait"></span></h2>
+  
+  
+<script type="text/javascript" charset="utf-8" id='source_code'>
+
+function dots() { window.setInterval( function() {
+    var wait = document.getElementById("wait");
+    if ( wait.innerHTML.length > 3 ) 
+        wait.innerHTML = "";
+    else 
+        wait.innerHTML += ".";
+    }, 200);
+}
+
+function loading() {
+   var e = document.getElementById('loading');
+       e.style.display =  'inline';
+   e = document.getElementById('chart');
+       e.style.display =  'none';
+   dots();
+}
+
+
+
+</script>
+
+
+{% endblock %}
